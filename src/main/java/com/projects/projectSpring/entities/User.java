@@ -20,6 +20,10 @@ public class User implements Serializable {
 	private String password;
 	
 
+	
+	// Construtor padrão obrigatório pelo Hibernate
+    public User() {
+    }
 	public User( String name, String email, String phone, String password) {
 		super();
 		this.name = name;
