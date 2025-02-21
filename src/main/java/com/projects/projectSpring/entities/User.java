@@ -1,6 +1,8 @@
 package com.projects.projectSpring.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import jakarta.persistence.*;
 
@@ -18,6 +20,10 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
+	
+	 @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	
+	private List<Order> orders = new ArrayList<>();
 	
 
 	
@@ -87,6 +93,9 @@ public class User implements Serializable {
 			return false;
 		User other = (User) obj;
 		return id == other.id;
+	}
+	public List<Order> getOrders() {
+		return orders;
 	}
 
 	
